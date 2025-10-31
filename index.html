@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGIPT Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="theme-dark">
+    <!-- Floating RGIPT logo top-left -->
+    <a href="#home" class="rgipt-logo" aria-label="RGIPT Home logo">
+        <svg width="44" height="44" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+                <linearGradient id="rg1" x1="0" x2="1">
+                    <stop offset="0" stop-color="#667eea"/>
+                    <stop offset="1" stop-color="#f093fb"/>
+                </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#rg1)" opacity="0.95" />
+            <rect x="30" y="44" width="60" height="8" rx="3" fill="#fff" opacity="0.95" />
+            <rect x="30" y="58" width="60" height="8" rx="3" fill="#fff" opacity="0.95" />
+            <path d="M60 36 L68 52 L52 52 Z" fill="#fff" opacity="0.95" />
+        </svg>
+    </a>
+    <!-- Top-right image logo -->
+    <a href="#home" class="rgipt-logo-right" aria-label="RGIPT image logo">
+        <img src="https://scontent.fdel29-1.fna.fbcdn.net/v/t39.30808-6/292235853_567356571752753_3224401452597312604_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=LajIJ2PwXKwQ7kNvwGCY136&_nc_oc=Adk9eVv9RGfG-Y8xFoNfIvKxY6tB31TDM36W4bnM7M8X8CzA2xG3G1JpOhZdPDBLplQ&_nc_zt=23&_nc_ht=scontent.fdel29-1.fna&_nc_gid=u5FPz5NAmM6o5MmfmxAtWw&oh=00_AfdCnhbkjEepgJyxJEOyOeaGM6COuaEidKgiANZ4d-VVdw&oe=69044FC9" alt="RGIPT"/>
+    </a>
+    <!-- Loading Screen with Logo Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="logo-container">
+            <div class="logo-circle">
+                        <div class="logo-inner" aria-hidden="true">
+                            <!-- Inline RGIPT-styled emblem SVG (simple, lightweight) -->
+                            <svg viewBox="0 0 120 120" width="72" height="72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RGIPT logo">
+                                <defs>
+                                    <linearGradient id="g1" x1="0" x2="1">
+                                        <stop offset="0" stop-color="#667eea"/>
+                                        <stop offset="1" stop-color="#f093fb"/>
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="60" cy="60" r="56" fill="url(#g1)" opacity="0.95" />
+                                <rect x="28" y="38" width="64" height="10" rx="3" fill="#fff" opacity="0.95" />
+                                <rect x="28" y="54" width="64" height="10" rx="3" fill="#fff" opacity="0.95" />
+                                <path d="M60 30 L68 46 L52 46 Z" fill="#fff" opacity="0.95" />
+                                <text x="60" y="88" font-family="Segoe UI, Roboto, Arial" font-weight="700" font-size="18" fill="#ffffff" text-anchor="middle">RGIPT</text>
+                            </svg>
+                        </div>
+            </div>
+            <h1 class="logo-text">RGIPT</h1>
+            <p class="logo-subtitle">RGIPT Home</p>
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Navigation -->
+    <!-- Daily Quote (changes day-by-day) -->
+    <div id="dailyQuote" class="daily-quote" aria-live="polite" aria-atomic="true">
+        <div class="quote-inner">
+            <span class="quote-mark">“</span>
+            <span class="quote-text">Loading inspiring quote...</span>
+            <span class="quote-author"></span>
+        </div>
+        <button id="toggleQuoteTranslation" class="quote-toggle" aria-pressed="false" title="Show translation">T</button>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-building"></i>
+                <span>RGIPT Home</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#announcements" class="nav-link">Announcements</a></li>
+                <li><a href="#meals" class="nav-link">Meal Menu</a></li>
+                <li><a href="#complaints" class="nav-link">Complaints</a></li>
+                <li><a href="#feedback" class="nav-link">Feedback</a></li>
+                <li><a href="#creators" class="nav-link">Creators</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div id="datetime"></div>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="settings-btn" id="settingsBtn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="notif-btn" id="notifBtn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notif-badge">3</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard/Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="welcome-card">
+                    <h1>Welcome to RGIPT Home</h1>
+                    <p>Your centralized portal for hostel management - RGIPT</p>
+                    <div class="programs-info">
+                        <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.95;">Rajiv Gandhi Institute of Petroleum Technology offers world-class B.Tech programs</p>
+                    </div>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat-card card-hero">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Announcements</h3>
+                        <p class="stat-number">5</p>
+                        <span class="stat-label">New updates</span>
+                    </div>
+                    <div class="stat-card card-hero">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Today's Menu</h3>
+                        <p class="stat-number">3</p>
+                        <span class="stat-label">Meals available</span>
+                    </div>
+                    <div class="stat-card card-hero">
+                        <i class="fas fa-wrench"></i>
+                        <h3>Maintenance</h3>
+                        <p class="stat-number">0</p>
+                        <span class="stat-label">Active requests</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card card-hero float-subtle" onclick="scrollToSection('announcements')">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Latest Announcements</h3>
+                        <p>View recent hostel notices and updates</p>
+                    </div>
+                    <div class="dashboard-card card-hero float-subtle" onclick="scrollToSection('meals')">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Meal Menu</h3>
+                        <p>Check today's and weekly menu</p>
+                    </div>
+                    <!-- TimeTable dashboard card removed -->
+                    <div class="dashboard-card card-hero float-subtle" onclick="scrollToSection('complaints')">
+                        <i class="fas fa-wrench"></i>
+                        <h3>Raise Complaint</h3>
+                        <p>Report maintenance issues</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- Feedback Section -->
+        <section id="feedback" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-comment-dots"></i> Feedback</h2>
+                <div class="complaint-form-container">
+                    <div style="display:flex;align-items:center;gap:0.9rem;margin-bottom:1rem;">
+                        <div class="complaint-logo" id="feedbackLogo" role="button" tabindex="0" aria-label="Focus feedback form">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="currentColor" opacity="0.08"/>
+                                <path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <form class="complaint-form" id="feedbackForm">
+                        <div class="form-row" style="display:flex;gap:1rem;flex-wrap:wrap;">
+                            <div style="flex:1;min-width:180px;" class="form-group">
+                                <label><i class="fas fa-user"></i> Name</label>
+                                <input type="text" id="feedbackName" placeholder="Your name (optional)">
+                            </div>
+                            <div style="flex:1;min-width:180px;" class="form-group">
+                                <label><i class="fas fa-map-marker-alt"></i> Room/Building</label>
+                                <input type="text" id="feedbackRoom" placeholder="e.g., Hostel-A, Room-201">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-utensils"></i> Feedback Type</label>
+                            <div class="select-with-icon accent-complaint">
+                                <span class="select-icon" aria-hidden="true"><i class="fas fa-list"></i></span>
+                                <select id="feedbackType" class="native-select">
+                                    <option value="general" data-icon="fas fa-list">General</option>
+                                    <option value="hostel" data-icon="fas fa-home">Hostel Facilities</option>
+                                    <option value="food" data-icon="fas fa-utensils">Food Quality</option>
+                                    <option value="cleanliness" data-icon="fas fa-broom">Cleanliness</option>
+                                </select>
+                                <div class="custom-select" id="customFeedbackSelect" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="customFeedbackOptions">
+                                    <span class="custom-value">General</span>
+                                    <i class="fas fa-chevron-down custom-arrow"></i>
+                                </div>
+                                <div class="custom-options" id="customFeedbackOptions" role="listbox" tabindex="-1" aria-hidden="true"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-star"></i> Ratings (emoji or select)</label>
+                            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                                <div class="rating-group form-group" style="flex:1;min-width:180px;">
+                                    <div style="font-weight:600;margin-bottom:0.4rem;">Hostel Facilities</div>
+                                    <div class="emoji-rating" role="radiogroup" aria-label="Hostel Facilities rating">
+                                        <button type="button" class="emoji-btn" data-target="facilities" data-value="1" aria-label="Very poor">😡</button>
+                                        <button type="button" class="emoji-btn" data-target="facilities" data-value="2" aria-label="Poor">😕</button>
+                                        <button type="button" class="emoji-btn" data-target="facilities" data-value="3" aria-label="Okay">😐</button>
+                                        <button type="button" class="emoji-btn" data-target="facilities" data-value="4" aria-label="Good">🙂</button>
+                                        <button type="button" class="emoji-btn" data-target="facilities" data-value="5" aria-label="Excellent">😁</button>
+                                    </div>
+                                    <select id="facilitiesSelect" class="native-select" aria-label="Hostel Facilities rating (select fallback)">
+                                        <option value="">No rating</option>
+                                        <option value="1">1 - Very poor</option>
+                                        <option value="2">2 - Poor</option>
+                                        <option value="3">3 - Okay</option>
+                                        <option value="4">4 - Good</option>
+                                        <option value="5">5 - Excellent</option>
+                                    </select>
+                                </div>
+
+                                <div class="rating-group form-group" style="flex:1;min-width:180px;">
+                                    <div style="font-weight:600;margin-bottom:0.4rem;">Food Quality</div>
+                                    <div class="emoji-rating" role="radiogroup" aria-label="Food Quality rating">
+                                        <button type="button" class="emoji-btn" data-target="food" data-value="1" aria-label="Very poor">😡</button>
+                                        <button type="button" class="emoji-btn" data-target="food" data-value="2" aria-label="Poor">😕</button>
+                                        <button type="button" class="emoji-btn" data-target="food" data-value="3" aria-label="Okay">😐</button>
+                                        <button type="button" class="emoji-btn" data-target="food" data-value="4" aria-label="Good">🙂</button>
+                                        <button type="button" class="emoji-btn" data-target="food" data-value="5" aria-label="Excellent">😁</button>
+                                    </div>
+                                    <select id="foodSelect" class="native-select" aria-label="Food Quality rating (select fallback)">
+                                        <option value="">No rating</option>
+                                        <option value="1">1 - Very poor</option>
+                                        <option value="2">2 - Poor</option>
+                                        <option value="3">3 - Okay</option>
+                                        <option value="4">4 - Good</option>
+                                        <option value="5">5 - Excellent</option>
+                                    </select>
+                                </div>
+
+                                <div class="rating-group form-group" style="flex:1;min-width:180px;">
+                                    <div style="font-weight:600;margin-bottom:0.4rem;">Cleanliness</div>
+                                    <div class="emoji-rating" role="radiogroup" aria-label="Cleanliness rating">
+                                        <button type="button" class="emoji-btn" data-target="clean" data-value="1" aria-label="Very poor">😡</button>
+                                        <button type="button" class="emoji-btn" data-target="clean" data-value="2" aria-label="Poor">😕</button>
+                                        <button type="button" class="emoji-btn" data-target="clean" data-value="3" aria-label="Okay">😐</button>
+                                        <button type="button" class="emoji-btn" data-target="clean" data-value="4" aria-label="Good">🙂</button>
+                                        <button type="button" class="emoji-btn" data-target="clean" data-value="5" aria-label="Excellent">😁</button>
+                                    </div>
+                                    <select id="cleanSelect" class="native-select" aria-label="Cleanliness rating (select fallback)">
+                                        <option value="">No rating</option>
+                                        <option value="1">1 - Very poor</option>
+                                        <option value="2">2 - Poor</option>
+                                        <option value="3">3 - Okay</option>
+                                        <option value="4">4 - Good</option>
+                                        <option value="5">5 - Excellent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-align-left"></i> Comments</label>
+                            <textarea id="feedbackComments" rows="4" placeholder="Add any comments or suggestions..."></textarea>
+                        </div>
+
+                        <div style="display:flex;gap:0.6rem;">
+                            <button type="submit" class="btn btn-primary" id="submitFeedback">
+                                <i class="fas fa-paper-plane"></i> Submit Feedback
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="cancelFeedback">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="my-complaints">
+                    <h3>My Feedback</h3>
+                    <div class="feedback-filter" style="display:flex;gap:0.6rem;align-items:center;margin-bottom:0.6rem;flex-wrap:wrap;">
+                        <input id="feedbackFilterName" placeholder="Enter name to filter" style="flex:1;min-width:200px;padding:8px;border-radius:8px;border:1px solid var(--border-color);background:var(--select-bg);" />
+                        <button id="filterFeedbackBtn" class="btn" style="padding:8px 12px;">Show</button>
+                        <button id="clearFilterBtn" class="btn" style="padding:8px 12px;">Clear</button>
+                        <button id="clearAllFeedbackBtn" class="btn btn-secondary" style="padding:8px 12px;background:#ff6b6b;border-color:#ff6b6b;color:#fff;">Clear All Feedback</button>
+                    </div>
+                    <div id="feedbackList"></div>
+                    <div id="feedbackFilterContainer" style="margin-top:10px"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Snacks Section -->
+        <section id="snacks" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-cookie-bite"></i> Snacks</h2>
+                    <div class="snacks-grid">
+                    <div class="snack-card meal-card card-hero">
+                        <h3><i class="fas fa-cookie"></i> Evening Snacks</h3>
+                        <ul>
+                            <li><i class="fas fa-circle dot"></i> Samosa with chutney</li>
+                            <li><i class="fas fa-circle dot"></i> Vegetable cutlet</li>
+                            <li><i class="fas fa-circle dot"></i> Tea/Coffee</li>
+                        </ul>
+                    </div>
+                    <div class="snack-card meal-card card-hero">
+                        <h3><i class="fas fa-ice-cream"></i> Dessert Corner</h3>
+                        <ul>
+                            <li><i class="fas fa-circle dot"></i> Gulab Jamun</li>
+                            <li><i class="fas fa-circle dot"></i> Ice Cream (vanilla)</li>
+                        </ul>
+                    </div>
+                    <div class="snack-card meal-card card-hero">
+                        <h3><i class="fas fa-apple-alt"></i> Healthy Bites</h3>
+                        <ul>
+                            <li><i class="fas fa-circle dot"></i> Seasonal fruits</li>
+                            <li><i class="fas fa-circle dot"></i> Yogurt cups</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section id="announcements" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-bullhorn"></i> Announcements</h2>
+                <div id="announcementsTicker" class="announcements-ticker" aria-live="polite" style="margin:8px 0 14px;padding:8px 12px;border-radius:10px;background:var(--select-bg);display:flex;align-items:center;gap:12px;">
+                    <i class="fas fa-rss" style="color:var(--primary-color)"></i>
+                    <div id="announcementText" style="flex:1;color:var(--text-primary);font-weight:600;">Loading latest news...</div>
+                    <div id="announcementCounter" style="color:var(--text-secondary);font-size:0.9rem;">0/0</div>
+                </div>
+                        <div class="announcements-grid">
+                    <div class="announcement-card highlight float-subtle card-hero">
+                        <div class="ann-card-header">
+                            <div style="display:flex;align-items:center;gap:0.6rem;">
+                                <!-- small inline banner/icon placeholder -->
+                                <div aria-hidden="true" style="width:44px;height:36px;border-radius:8px;background:linear-gradient(90deg,#667eea,#f093fb);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(102,126,234,0.12);">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M3 12h18M3 6h18M3 18h18" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="badge event-badge">URJOTSAV 2025</span>
+                            </div>
+                            <span class="ann-date">Nov 12 - 13, 2025</span>
+                        </div>
+                        <h3>Urjotsav 2025 — The Science & Technical Fest</h3>
+                        <p>Urjotsav is now the official Science & Technical Festival pillar of Urja Sangam 2025. It will be a dynamic gathering of the nation's brightest minds, featuring a wide range of technical competitions and events.</p>
+                        <h4 style="margin-top:0.75rem;">Key Events & Competitions</h4>
+                        <ul class="event-list">
+                            <li>Hack RGIPT Hackathon</li>
+                            <li>Innovation Challenge</li>
+                            <li>MazeSpark - Wall Maze Solver</li>
+                            <li>Code Climb</li>
+                            <li>UI Xpress: Design That Speaks</li>
+                            <li>Rubik's Cube Solving Challenge</li>
+                            <li>Sell Me If You Can</li>
+                        </ul>
+                        <a href="https://unstop.com/college-fests/urja-sangam-2k25-the-annual-fest-of-rgipt-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-403716" class="register-btn" target="_blank" rel="noopener">Register for Urjotsav</a>
+                        <p class="small-note">About Urja Sangam 2025: ENERGIA (Sports): Nov 10–11 · URJOTSAV (Science & Tech): Nov 12–13 · SAUHARDYA (Social): Nov 12–13 · KALTARANG (Cultural): Nov 14–16.</p>
+                        <div class="ann-footer">
+                            <i class="fas fa-link"></i> For up-to-date information, registration deadlines and schedules, check the official RGIPT website and official social media pages.
+                        </div>
+                    </div>
+                    <div class="announcement-card urgent float-subtle card-hero">
+                        <div class="ann-card-header">
+                            <span class="badge urgent-badge">URGENT</span>
+                            <span class="ann-date">Today, 10:30 AM</span>
+                        </div>
+                        <h3>Hostel Inspection Tomorrow</h3>
+                        <p>The warden will conduct a hostel inspection tomorrow morning. Please keep your rooms clean and tidy.</p>
+                        <div class="ann-footer">
+                            <i class="fas fa-user"></i> Warden Office
+                        </div>
+                    </div>
+                    <div class="announcement-card float-subtle card-hero">
+                        <div class="ann-card-header">
+                            <span class="badge new-badge">NEW</span>
+                            <span class="ann-date">Yesterday, 3:00 PM</span>
+                        </div>
+                        <h3>Sports Event Registration Open</h3>
+                        <p>Registration for the annual inter-hostel sports meet is now open. Last date: 30th October.</p>
+                        <div class="ann-footer">
+                            <i class="fas fa-user"></i> Sports Committee
+                        </div>
+                    </div>
+                    <div class="announcement-card float-subtle card-hero">
+                        <div class="ann-card-header">
+                            <span class="ann-date">2 days ago</span>
+                        </div>
+                        <h3>Mess Menu Changes</h3>
+                        <p>Starting next week, breakfast timings will be 7:30 AM - 9:30 AM. Please note the change.</p>
+                        <div class="ann-footer">
+                            <i class="fas fa-user"></i> Mess Committee
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meal Menu Section -->
+        <section id="meals" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-utensils"></i> Meal Menu <span style="font-size:0.9rem;opacity:0.85;">(Effective 01-11-2025)</span></h2>
+                <div class="meal-tabs">
+                    <button class="meal-tab active" data-day="today">Today</button>
+                    <button class="meal-tab" data-day="week1">Week 1</button>
+                    <button class="meal-tab" data-day="week2">Week 2</button>
+                </div>
+                <div class="meal-content">
+                    <div class="meal-day active" data-day="today">
+                        <div class="meal-card">
+                            <h3><i class="fas fa-coffee"></i> Breakfast (7:00 AM - 9:30 AM)</h3>
+                            <ul>
+                                <li><i class="fas fa-circle dot"></i> Aloo Paratha with Butter</li>
+                                <li><i class="fas fa-circle dot"></i> Idli with Sambhar</li>
+                                <li><i class="fas fa-circle dot"></i> Tea/Coffee/Milk</li>
+                                <li><i class="fas fa-circle dot"></i> Pickle & Yogurt</li>
+                            </ul>
+                        </div>
+                        <div class="meal-card">
+                            <h3><i class="fas fa-utensils"></i> Lunch (12:00 PM - 3:00 PM)</h3>
+                            <ul>
+                                <li><i class="fas fa-circle dot"></i> Vegetable Biryani</li>
+                                <li><i class="fas fa-circle dot"></i> Dal Tadka</li>
+                                <li><i class="fas fa-circle dot"></i> Mixed Vegetable Curry</li>
+                                <li><i class="fas fa-circle dot"></i> Rice, Roti, Salad</li>
+                                <li><i class="fas fa-circle dot"></i> Fruit (Seasonal)</li>
+                            </ul>
+                        </div>
+                        <div class="meal-card">
+                            <h3><i class="fas fa-cookie-bite"></i> Snacks (5:15 PM - 7:00 PM)</h3>
+                            <ul>
+                                <li><i class="fas fa-circle dot"></i> Golgappe / Evening Snack</li>
+                                <li><i class="fas fa-circle dot"></i> Tea / Coffee</li>
+                            </ul>
+                        </div>
+                        <div class="meal-card">
+                            <h3><i class="fas fa-pizza-slice"></i> Dinner (8:30 PM - 10:00 PM)</h3>
+                            <ul>
+                                <li><i class="fas fa-circle dot"></i> Rajma Rice</li>
+                                <li><i class="fas fa-circle dot"></i> Paneer Sabzi</li>
+                                <li><i class="fas fa-circle dot"></i> Dal Fry, Rice, Roti</li>
+                                <li><i class="fas fa-circle dot"></i> Salad, Pickle</li>
+                                <li><i class="fas fa-circle dot"></i> Sweet Dish</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="meal-day" data-day="week1" style="display: none;">
+                        <div id="weekly-menu-1">
+                            <table class="weekly-menu">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Breakfast</th>
+                                        <th>Lunch</th>
+                                        <th>Snacks</th>
+                                        <th>Dinner</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label="Day">Monday</td>
+                                        <td data-label="Breakfast">Sattu Paratha + Butter + Hari Chutney + Ketchup + Vegetable Oats Khichdi</td>
+                                        <td data-label="Lunch">Aloo Gobhi (gravy) + Chana Masala (dry) + Rice + Masoor Fry + Buttermilk + Chips</td>
+                                        <td data-label="Snacks">Maggi + Tea / Coffee</td>
+                                        <td data-label="Dinner">Mushroom Masala + Arhar Daal + Roti + Rice + Besan Ladoo</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Tuesday</td>
+                                        <td data-label="Breakfast">Besan Chilla + Sambhar + Chutney + Moong Sprouts + Sweet Dalia</td>
+                                        <td data-label="Lunch">Seasonal Veg + Rajma + Rice + Arhar Dal + Lassi / Dahi + Chips</td>
+                                        <td data-label="Snacks">Garlic Cheese Toast + Red & Green Chutney + Tea / Coffee</td>
+                                        <td data-label="Dinner">Dum Aloo + Roti + Moong Dal Tadka + Pulao Rice + Custard</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Wednesday</td>
+                                        <td data-label="Breakfast">Mix Paratha + Green Chutney + Sauce + Moong Sprouts + Banana</td>
+                                        <td data-label="Lunch">Aloo Bhujia + Kadi Pakoda (pyaaz) + Urad Daal + Chips</td>
+                                        <td data-label="Snacks">Khasta Kachauri (dal) + Green Chutney + Tamarind Chutney + Tea / Coffee</td>
+                                        <td data-label="Dinner">Veg: Kadai Paneer + Rice + Roti + Arhar Dal + 2 Gulab Jamun<br>Non-Veg: Egg Curry (2 eggs) + Arhar Dal + Rice + Roti + 2 Gulab Jamun</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Thursday</td>
+                                        <td data-label="Breakfast">Medu Vada + Sambhar + Coconut Chutney + Sweet Dalia + Sprouts</td>
+                                        <td data-label="Lunch">Matar Mushroom (gravy) + Chokha (aloo + tomato + onion) + Panchratna Dal + Rice + Roti + Papad</td>
+                                        <td data-label="Snacks">Poha + Tea / Coffee</td>
+                                        <td data-label="Dinner">Aloo Kabuli Chana (gravy) + Kulche + Dal Tadka + Rice + Roti + Soan Papdi</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Friday</td>
+                                        <td data-label="Breakfast">Paneer Paratha + Butter + Chana Sprouts + Banana</td>
+                                        <td data-label="Lunch">Aloo Palak (dry) + Lauki Kofta (gravy) + Masoor Dal + Boondi Raita + Chips</td>
+                                        <td data-label="Snacks">Veg (pyaaz + cucumber + cabbage + tomato) Mayo Sandwich + Salted Dry Fry Chana + Tea / Coffee</td>
+                                        <td data-label="Dinner">Veg: Paneer Lababdar + Daal Fry + Tandoor Roti + Rice + Rasmalai (2 pcs)<br>Non-Veg: Chicken Masala (2 pcs) + Tandoor Roti + Rice + Daal Fry</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Saturday</td>
+                                        <td data-label="Breakfast">Methi Puri + Bhandare Wale Aloo + Jalebi + Namkeen Daliya + Chana Sprouts</td>
+                                        <td data-label="Lunch">Plain Khichdi + Aloo Soyabean Tomato (dry) + Dahi + Plain Rice + Roti + Daal Fry</td>
+                                        <td data-label="Snacks">Aloo / Pyaaz / Moong Dal / Palak Pakoda + Pudina Chutney + Red Chutney + Tea / Coffee</td>
+                                        <td data-label="Dinner">Broccoli Capsicum Matar (dry) + Lauki Chana Dal Fry + Rice + Roti + Moong Daal Halwa</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Sunday</td>
+                                        <td data-label="Breakfast">Masala Dosa + Sambhar + Coconut Chutney + Moong Sprouts + 2 Banana</td>
+                                        <td data-label="Lunch">Chole Bhature + Jeera Aloo + Moong Dal + Papad + Dahi Vada</td>
+                                        <td data-label="Snacks">Dhokla + Tea / Coffee</td>
+                                        <td data-label="Dinner">Seasonal Veg + Arhar Dal + Rice + Roti + Kheer</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Daily</td>
+                                        <td data-label="Breakfast">200 ml Milk + 100 ml Tea / Coffee + Sprouts + Bread + Butter + Jam (separated)</td>
+                                        <td data-label="Lunch">Pickle + Roti (plain + butter) + Plain Rice + Salad (onion, tomato)</td>
+                                        <td data-label="Snacks">Chilli Sauce + Tomato Sauce + Tea / Coffee</td>
+                                        <td data-label="Dinner">Pickle + Roti (plain + butter) + Plain Rice + Rasam + Salad (onion, cucumber, lemon, beetroot, fried green chilli, tomato)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="meal-day" data-day="week2" style="display: none;">
+                        <div id="weekly-menu-2">
+                            <table class="weekly-menu">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Breakfast</th>
+                                        <th>Lunch</th>
+                                        <th>Snacks</th>
+                                        <th>Dinner</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label="Day">Monday</td>
+                                        <td data-label="Breakfast">Aloo Paratha + Butter + Salted Chana Sprouts + 2 Banana</td>
+                                        <td data-label="Lunch">Aloo Cabbage / Seasonal Veg + Rajma + Rice + Moong Dal Fry + Butter Milk + Chips</td>
+                                        <td data-label="Snacks">Samosa + Tea / Coffee</td>
+                                        <td data-label="Dinner">Masala Bhindi / Seasonal Veg + Roti + Rice + Custard</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Tuesday</td>
+                                        <td data-label="Breakfast">Uttapam + Chutney + Sweet Dalia + Moong Sprouts + Papaya / Orange</td>
+                                        <td data-label="Lunch">Seasonal Veg + Gravy Aloo Chana Masala + Plain Rice + Arhar Dal + Lassi / Dahi + Chips</td>
+                                        <td data-label="Snacks">Bread Pakoda + Tea / Coffee</td>
+                                        <td data-label="Dinner">Methi Puri + Aloo Matar Gobhi (gravy) + Kheer + Roti + Daal Tadka + Rice</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Wednesday</td>
+                                        <td data-label="Breakfast">Sattu Paratha + Butter + Chutney + Corn Flakes + Moong Sprouts</td>
+                                        <td data-label="Lunch">Aloo Gobhi Ki Sabzi (gravy) + Dry Soya Chunks + Panchratan Dal + Boondi Raita + Chips</td>
+                                        <td data-label="Snacks">Cutlet + Tea / Coffee</td>
+                                        <td data-label="Dinner">Veg: Matar Paneer + Rice + Roti + Arhar Dal + 2 Gulab Jamun<br>Non-Veg: Egg Curry (2 eggs) + Arhar Dal + Rice + Roti + 2 Gulab Jamun</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Thursday</td>
+                                        <td data-label="Breakfast">Idli + Sambhar Boiled + Chana Salted + Sweet Dalia + Banana / Papaya</td>
+                                        <td data-label="Lunch">Kathol + Methi/Dal Puri + Kaddu Sabji + Pulao/Lemon Rice/Tomato Rice + Plain Rice + Arhar Daal + Mix Raita + Papad</td>
+                                        <td data-label="Snacks">Khasta Kachaudi (dal) + Green Chutney + Tamarind Chutney + Tea / Coffee</td>
+                                        <td data-label="Dinner">Dal Tadka + Veg Biryani + Dam Aloo + Plain Rice + Roti + Soan Papdi</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Friday</td>
+                                        <td data-label="Breakfast">Paneer Paratha + Butter + Corn Flakes + Chana Sprouts</td>
+                                        <td data-label="Lunch">Aloo Bhujiya + Kadi Pakoda + Moong Dal Tadka + Papad</td>
+                                        <td data-label="Snacks">Poha + Namkeen + Tea / Coffee</td>
+                                        <td data-label="Dinner">Veg: Kadai Paneer + Daal Fry + Tandoor Roti + Rice + Rasmalai (2 pcs)<br>Non-Veg: Chicken Masala (2 pcs) + Tandoor Roti + Rice + Daal Fry + Rasmalai (1 pc)</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Saturday</td>
+                                        <td data-label="Breakfast">Methi Puri + Bhandare Wale Aloo + Jalebi + Namkeen Daliya + Chana Sprouts</td>
+                                        <td data-label="Lunch">Aloo Palak / Seasonal Veg + Chana Daal + Rasam + Khichdi + Curd Rice + French Fries</td>
+                                        <td data-label="Snacks">Pav Bhaji + Tea / Coffee</td>
+                                        <td data-label="Dinner">Mushroom Gravy Masala + Lauki Chana Dal Fry + Moong Daal Halwa</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Sunday</td>
+                                        <td data-label="Breakfast">Masala Dosa + Sambhar + Coconut Chutney + Moong Sprouts + 2 Banana</td>
+                                        <td data-label="Lunch">Chole Bhature + Jeera Aloo + Moong Dal + Papad + Dahi Vada</td>
+                                        <td data-label="Snacks">Gol Gappe (Aloo) + Imli Pani + Teekhi Pani + Tea / Coffee</td>
+                                        <td data-label="Dinner">Aloo Methi + Palak Dal + Rice + Roti + Kheer</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Day">Daily</td>
+                                        <td data-label="Breakfast">200 ml Milk + 100 ml Tea / Coffee + Sprouts + Bread + Butter + Jam (separated)</td>
+                                        <td data-label="Lunch">Pickle + Roti (plain + butter) + Plain Rice + Salad (onion, tomato)</td>
+                                        <td data-label="Snacks">Chilli Sauce + Tomato Sauce + Tea / Coffee</td>
+                                        <td data-label="Dinner">Pickle + Roti (plain + butter) + Plain Rice + Rasam + Salad (onion, cucumber, lemon, beetroot, fried green chilli, tomato)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Complaints Section -->
+        <section id="complaints" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-wrench"></i> Maintenance Requests</h2>
+                <div class="complaint-form-container">
+                    <!-- Interactive logo for complaints -->
+                    <div style="display:flex;align-items:center;gap:0.9rem;margin-bottom:1rem;">
+                        <div class="complaint-logo" id="complaintLogo" role="button" tabindex="0" aria-label="Focus complaint form">
+                            <!-- Simple interactive SVG (shield with wrench) -->
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 2l7 4v5c0 5-3.8 9.7-7 11-3.2-1.3-7-6-7-11V6l7-4z" fill="currentColor" opacity="0.12"/>
+                                <path d="M10.5 11.5l3 3 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 7l6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        
+                    </div>
+                    <form class="complaint-form" id="complaintForm">
+                        <div class="form-row" style="display:flex;gap:1rem;flex-wrap:wrap;">
+                            <div style="flex:1;min-width:180px;" class="form-group">
+                                <label><i class="fas fa-user"></i> Name</label>
+                                <input type="text" id="complaintName" placeholder="Your name" required>
+                            </div>
+                            <div style="flex:1;min-width:180px;" class="form-group">
+                                <label><i class="fas fa-map-marker-alt"></i> Room/Building</label>
+                                <input type="text" id="roomNumber" placeholder="e.g., Hostel-A, Room-201" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-list"></i> Issue Category</label>
+                            <div class="select-with-icon accent-complaint">
+                                <span class="select-icon" id="complaintCategoryIcon" aria-hidden="true"><i class="fas fa-tools"></i></span>
+                                <select id="complaintCategory" class="native-select" required>
+                                    <option value="" data-icon="fas fa-search">Select Category</option>
+                                    <option value="electrical" data-icon="fas fa-bolt">Electrical</option>
+                                    <option value="plumbing" data-icon="fas fa-tint">Plumbing</option>
+                                    <option value="cleaning" data-icon="fas fa-broom">Cleaning</option>
+                                    <option value="furniture" data-icon="fas fa-couch">Furniture</option>
+                                    <option value="internet" data-icon="fas fa-wifi">Internet/WiFi</option>
+                                    <option value="other" data-icon="fas fa-question-circle">Other</option>
+                                </select>
+                                <div class="custom-select" id="customComplaintSelect" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="customComplaintOptions">
+                                    <span class="custom-value">Select Category</span>
+                                    <i class="fas fa-chevron-down custom-arrow"></i>
+                                </div>
+                                <div class="custom-options" id="customComplaintOptions" role="listbox" tabindex="-1" aria-hidden="true"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-align-left"></i> Description</label>
+                            <textarea id="complaintDescription" rows="5" placeholder="Describe the issue in detail..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-exclamation-circle"></i> Urgency</label>
+                            <div class="select-with-icon accent-urgency">
+                                <span class="select-icon" id="urgencyIcon" aria-hidden="true"><i class="fas fa-clock"></i></span>
+                                <select id="urgencyLevel" class="native-select">
+                                    <option value="normal" data-icon="fas fa-clock">Normal</option>
+                                    <option value="urgent" data-icon="fas fa-exclamation-triangle">Urgent</option>
+                                    <option value="critical" data-icon="fas fa-bolt">Critical</option>
+                                </select>
+                                <div class="custom-select" id="customUrgencySelect" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="customUrgencyOptions">
+                                    <span class="custom-value">Normal</span>
+                                    <i class="fas fa-chevron-down custom-arrow"></i>
+                                </div>
+                                <div class="custom-options" id="customUrgencyOptions" role="listbox" tabindex="-1" aria-hidden="true"></div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Submit Request
+                        </button>
+                    </form>
+                </div>
+                <div class="my-complaints">
+                    <h3>My Complaints</h3>
+                    <div style="display:flex;gap:0.6rem;align-items:center;margin-bottom:0.6rem;flex-wrap:wrap;">
+                        <input id="complaintFilterName" placeholder="Enter name to filter" style="flex:1;min-width:200px;padding:8px;border-radius:8px;border:1px solid var(--border-color);background:var(--select-bg);" />
+                        <button id="filterComplaintsBtn" class="btn" style="padding:8px 12px;">Show</button>
+                        <button id="clearComplaintsFilterBtn" class="btn" style="padding:8px 12px;">Clear</button>
+                        <button id="clearAllComplaintsBtn" class="btn btn-secondary" style="padding:8px 12px;background:#ff6b6b;border-color:#ff6b6b;color:#fff;">Clear All Complaints</button>
+                    </div>
+                    <div id="complaintsList"></div>
+                </div>
+            </div>
+        </section>
+
+        
+    
+
+
+
+        <!-- Creators Section -->
+        <section id="creators" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-users"></i> Creators</h2>
+                <div class="creators-grid" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.6rem;">
+                    <div class="creator-card card-hero" style="flex:1;min-width:220px;">
+                        <h3>S.Mukunda Rama Chary</h3>
+                        <p><strong>Roll:</strong> 25MC3060</p>
+                        <p><strong>Phone:</strong> +91 9398863107</p>
+                        <p><strong>Email:</strong> <a href="mailto:25mc3060@rgipt.ac.in">25mc3060@rgipt.ac.in</a></p>
+                    </div>
+                    <div class="creator-card card-hero" style="flex:1;min-width:220px;">
+                        <h3>B. Bhargav Venkat Dora</h3>
+                        <p><strong>Roll:</strong> 25MC3018</p>
+                        <p><strong>Phone:</strong> +91 6309630559</p>
+                        <p><strong>Email:</strong> <a href="mailto:25mc3018@rgipt.ac.in">25mc3018@rgipt.ac.in</a></p>
+                    </div>
+                    <div class="creator-card card-hero" style="flex:1;min-width:220px;">
+                        <h3>Sai Badrishwar S S</h3>
+                        <p><strong>Roll:</strong> 25MC3054</p>
+                        <p><strong>Phone:</strong> +91 7483960412</p>
+                        <p><strong>Email:</strong> <a href="mailto:25mc3054@rgipt.ac.in">25mc3054@rgipt.ac.in</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 RGIPT Home. All rights reserved.</p>
+            <p>Designed by team Devayani <i class="fas fa-heart"></i> for RGIPT Family </p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span class="toast-message"></span>
+    </div>
+
+    <!-- Settings Panel (animation speed + per-control accents) -->
+    <div id="settingsPanel" class="settings-panel" aria-hidden="true">
+        <div class="settings-inner">
+            <header class="settings-header">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <button id="closeSettings" class="settings-close" aria-label="Close settings"><i class="fas fa-times"></i></button>
+            </header>
+            <div class="settings-body">
+                <div class="setting-row">
+                    <label for="animSpeed">Animation Speed</label>
+                    <input type="range" id="animSpeed" min="0.3" max="2" step="0.05" value="1">
+                    <div class="setting-note">Lower is faster, higher is slower. Respects reduced-motion.</div>
+                </div>
+
+                <div class="setting-row">
+                    <label for="accentComplaint">Complaint Accent</label>
+                    <input type="color" id="accentComplaint" value="#ff7a59">
+                </div>
+                
+                <div class="setting-row">
+                    <label for="accentUrgency">Urgency Accent</label>
+                    <input type="color" id="accentUrgency" value="#f5576c">
+                </div>
+
+                <div class="setting-row">
+                    <label for="requireAllRatings">Require all three ratings</label>
+                    <input type="checkbox" id="requireAllRatings" />
+                    <div class="setting-note">When enabled, users must provide all three ratings (Facilities, Food, Cleanliness).</div>
+                </div>
+
+                <div class="setting-row">
+                    <label for="quoteLanguage">Preferred quote language</label>
+                    <select id="quoteLanguage">
+                        <option value="auto">Auto (show available meaning)</option>
+                        <option value="english">English</option>
+                        <option value="original">Original / Source</option>
+                    </select>
+                    <div class="setting-note">When available, show the quote meaning/translation on hover in the selected language.</div>
+                </div>
+
+                <div class="settings-actions">
+                    <button id="resetSettings" class="btn btn-secondary">Reset</button>
+                    <button id="saveSettings" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-bolt"></i> Severity (emoji or select)</label>
+                            <div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;">
+                                <div style="flex:1;min-width:180px;">
+                                    <div class="emoji-rating" role="radiogroup" aria-label="Complaint severity rating">
+                                        <button type="button" class="emoji-btn" data-target="severity" data-value="1" aria-label="Very low">😡</button>
+                                        <button type="button" class="emoji-btn" data-target="severity" data-value="2" aria-label="Low">😕</button>
+                                        <button type="button" class="emoji-btn" data-target="severity" data-value="3" aria-label="Moderate">😐</button>
+                                        <button type="button" class="emoji-btn" data-target="severity" data-value="4" aria-label="High">🙂</button>
+                                        <button type="button" class="emoji-btn" data-target="severity" data-value="5" aria-label="Very high">😁</button>
+                                    </div>
+                                    <select id="severitySelect" class="native-select" aria-label="Complaint severity (select fallback)">
+                                        <option value="">No rating</option>
+                                        <option value="1">1 - Very low</option>
+                                        <option value="2">2 - Low</option>
+                                        <option value="3">3 - Moderate</option>
+                                        <option value="4">4 - High</option>
+                                        <option value="5">5 - Very high</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+
+    <!-- ARIA live region for screen readers -->
+    <div id="ariaLive" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

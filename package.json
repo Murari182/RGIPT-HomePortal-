@@ -1,0 +1,9 @@
+{
+  "name": "rgipt-home-local",
+  "version": "1.0.0",
+  "description": "Static RGIPT Home site — helper package.json for running a local static server",
+  "scripts": {
+    "start": "npx http-server -p 8080"
+  },
+  "devDependencies": {}
+}
